@@ -1,0 +1,10 @@
+name: something
+
+on: workflow_dispatch
+
+jobs:
+  outputSomething:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Secrets
+        run: echo test!!!
