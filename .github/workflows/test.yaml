@@ -2,9 +2,13 @@ name: something
 
 on: workflow_dispatch
 
+permissions: 
+  id-token: write
+  contents: read
+
 jobs:
-  outputSomething:
+  preview:
+  - name: Preview
     runs-on: ubuntu-latest
-    steps:
-      - name: Secrets
-        run: echo test!!!
+    steps: |
+      run: echo test!!!
