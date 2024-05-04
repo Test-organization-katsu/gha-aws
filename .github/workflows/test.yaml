@@ -8,7 +8,7 @@ permissions:
 
 jobs:
   preview:
-  - name: Preview
     runs-on: ubuntu-latest
-    steps: |
-      run: echo test!!!
+    steps: 
+      - name: Preview
+        run: echo test!!!
