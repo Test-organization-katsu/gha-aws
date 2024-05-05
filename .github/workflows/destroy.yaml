@@ -32,10 +32,11 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   aws-region: ${{ env.AWS-REGION }}
-                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN}}
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
 
             - name: Terraform init
               run: |
+                  echo ${{ secrets.AWS_IAM_ROLE_ARN }}
                   terraform init -no-color
 
             - name: Terraform destroy
