@@ -8,6 +8,7 @@ terraform {
     }
   }
   backend "s3" {
+    # クレデンシャルではなくrole-to-assumeを使っているのでprofileの指定は不要
     bucket = "tastylog-tfstate-bucket-kamakari"
     key    = "tastylog-dev-tfstate"
     region = "ap-northeast-1"
