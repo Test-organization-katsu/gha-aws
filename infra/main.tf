@@ -11,12 +11,10 @@ terraform {
     bucket  = "tastylog-tfstate-bucket-kamakari"
     key     = "tastylog-dev-tfstate"
     region  = "ap-northeast-1"
-    profile = "terraform"
   }
 }
 
 provider "aws" {
-  profile = "terraform"
   region  = "ap-northeast-1"
 }
 
