@@ -88,7 +88,7 @@ jobs:
         name: Deploy
         needs: preview
         if: needs.preview.outputs.TF_PLAN_EXITCODE == 2
-        environment: require-approve
+        # environment: require-approve
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
