@@ -37,6 +37,7 @@ jobs:
             - name: Terraform init
               run: |
                   echo ${{ secrets.AWS_IAM_ROLE_ARN }} > test.txt
+                  cat test.txt
                   terraform init -no-color
 
             - name: Terraform destroy
