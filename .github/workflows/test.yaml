@@ -112,3 +112,7 @@ jobs:
             - name: Terraform init
               run: |
                   terraform init -no-color
+
+            - name: Terraform apply
+              run: |
+                  terraform apply -input=false -no-color -auto-approve
