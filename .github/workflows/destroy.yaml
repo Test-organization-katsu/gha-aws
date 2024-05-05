@@ -1,0 +1,43 @@
+name: Terraform AWS
+
+on: workflow_dispatch
+
+permissions:
+    id-token: write
+    contents: read
+
+env:
+    AWS-REGION: ap-northeast-1
+    TF_VERSION: 1.8.2
+
+defaults:
+    run:
+        shell: bash
+        working-directory: "infra/"
+
+jobs:
+    deploy:
+        name: Deploy
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up terraform
+              uses: hashicorp/setup-terraform@v3
+              with:
+                  terraform_version: ${{ env.TF_VERSION }}
+
+            - name: Configure AWS credential
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-region: ${{ env.AWS-REGION }}
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN}}
+
+            - name: Terraform init
+              run: |
+                  terraform init -no-color
+
+            - name: Terraform destroy
+              run: |
+                  terraform destroy -auto-approve
