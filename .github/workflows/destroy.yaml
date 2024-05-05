@@ -1,4 +1,4 @@
-name: Terraform AWS
+name: Terraform destroy
 
 on: workflow_dispatch
 
@@ -16,8 +16,8 @@ defaults:
         working-directory: "infra/"
 
 jobs:
-    deploy:
-        name: Deploy
+    destroy:
+        name: Destroy
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
