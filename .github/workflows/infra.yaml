@@ -88,7 +88,6 @@ jobs:
         name: Deploy
         needs: preview
         if: needs.preview.outputs.TF_PLAN_EXITCODE == 2
-        # environment: require-approve
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
@@ -107,7 +106,7 @@ jobs:
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   aws-region: ${{ env.AWS-REGION }}
-                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN}}
+                  role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
 
             - name: Terraform init
               run: |
