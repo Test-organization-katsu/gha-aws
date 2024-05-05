@@ -5,35 +5,35 @@ on: workflow_dispatch
 jobs:
     notify:
         name: Slack Notify
-        runs-on: ubuntsu-latest
-        steps: 
+        runs-on: ubuntu-latest
+        steps:
             - name: Slack Notify
               uses: slackapi/slack-github-action@v1.26.0
               with:
-                channel-id: C0721ENU5C3
-                payload: |
-                {
-                    "attachments": [
-                        {
-                            "blocks": [
-                                {
-                                    "type": "header",
-                                    "text": {
-                                        "type": "plain_text",
-                                        "text": "Message Header",
-                                        "emoji": true
-                                    }
-                                },
-                                {
-                                    "type": "section",
-                                    "text": {
-                                        "type": "mrkdwn",
-                                        "text": "Hello world :cat:"
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
-              env: 
-                SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+                  channel-id: C0721ENU5C3
+                  payload: |
+                      {
+                          "attachments": [
+                              {
+                                  "blocks": [
+                                      {
+                                          "type": "header",
+                                          "text": {
+                                              "type": "plain_text",
+                                              "text": "Message Header",
+                                              "emoji": true
+                                          }
+                                      },
+                                      {
+                                          "type": "section",
+                                          "text": {
+                                              "type": "mrkdwn",
+                                              "text": "Hello world :cat:"
+                                          }
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
