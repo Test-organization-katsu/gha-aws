@@ -8,14 +8,14 @@ terraform {
     }
   }
   backend "s3" {
-    bucket  = "tastylog-tfstate-bucket-kamakari"
-    key     = "tastylog-dev-tfstate"
-    region  = "ap-northeast-1"
+    bucket = "tastylog-tfstate-bucket-kamakari"
+    key    = "tastylog-dev-tfstate"
+    region = "ap-northeast-1"
   }
 }
 
 provider "aws" {
-  region  = "ap-northeast-1"
+  region = "ap-northeast-1"
 }
 
 resource "aws_instance" "app_server" {
